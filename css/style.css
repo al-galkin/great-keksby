@@ -1,0 +1,1023 @@
+/*задаём для body фоновый белый цвет, обнуляем внешние и внутренние отступы.  
+зададим для body минимальную ширину, чтобы для содержания страницы всегда 
+было достаточно места вне зависимости от ширины окна браузера. 
+Ширина содержания составляет 1020px, добавим к ней отступы справа и слева по 10px
+ и получим минимальную ширину 1040px.*/
+
+body {
+  min-width: 1040px;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Arial", sans-serif;
+  color: #404040;
+  background-color: white;
+}
+
+/*добавили контейнер-центровщик для всех блоков*/
+
+.container {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+/*добавили псевдораспорку на родителя плавающих колонок*/
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*РАЗДЕЛ "ШАПКА"*/
+
+/*оформление блока "шапка": добавляем фон-картинку*/
+
+.page-header {
+  min-height: 490px;
+  padding-top: 35px;
+  background-image: url("../img/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.page-header,
+.page-footer {
+  color: #c3c3c3;
+  background-color: #363636;
+}
+
+/*.header-top - 1й родитель плавающих колонок*/
+
+.header-top {
+  margin-bottom: 125px;
+}
+
+/*сместим логотип и меню влево, т.к. согласно макету 
+кнопка «Заказать» прибита к правому краю.*/
+
+.header-logo {
+  float: left;
+  width: 205px;
+  height: 55px;
+}
+
+/*изображению внутри блока логотипа 
+зададим фиксированные размеры из макета*/
+
+.header-logo img {
+  width: 205px;
+  height: 55px;
+}
+
+/*сбрасываем стили по-умолчанию в меню*/
+/*сместим логотип и меню влево, т.к. согласно макету 
+кнопка «Заказать» прибита к правому краю.*/
+/*расположим пункты меню в ряд*/
+
+.main-nav {
+  float: left;
+  width: 520px;
+  margin: 0;
+  margin-top: 18px;
+  margin-left: 125px;
+  padding: 0;
+  list-style: none;
+}
+
+/*Отступы между пунктами меню*/
+
+.main-nav li {
+  float: left;
+  margin-right: 50px;
+  text-transform: uppercase;
+}
+
+/*ненужный отступ обнулим*/
+
+.main-nav li:last-child {
+  margin-right: 0;
+}
+
+/*расскраска ссылок в меню, + при наведении и нажатии*/
+
+.main-nav a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+.main-nav a:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*стилизация кнопок, + при наведении и нажатии*/
+/*блочно-строчный тип: прописываем вертикальное выравнивание,
+добавляем рамки и внутр. отступы по макету*/
+/*если текста в кнопке окажется больше, чем помещается 
+в одной строке, обезопасим себя свойством word-wrap, 
+а также включим принудительное наследование шрифта*/
+
+.btn {
+  display: inline-block;
+  width: 146px;
+  padding: 10px;
+  font: inherit;
+  vertical-align: top;
+  text-align: center;
+  color: #a38b70;
+  text-transform: uppercase;
+  text-decoration: none;
+  word-wrap: break-word;
+  border: 2px solid #a38b70;
+  border-radius: 2px;
+}
+
+/*+ состояния кнопок*/
+
+.btn:hover {
+  color: #8d745a;
+  border-color: #8d745a;
+}
+
+.btn:active {
+  color: rgba(141, 116, 90, 0.3);
+  border-color: #8d745a;
+}
+
+/*добавим небольшой отступ сверху, 
+чтобы выровнять кнопку согласно макету*/
+
+.btn-quick-order {
+  float: right;
+  margin-top: 6px;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/*+Состояния кнопки заказа*/
+
+.btn-quick-order:hover {
+  color: #404040;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-quick-order:active {
+  color: rgba(64, 64, 64, 0.3);
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/*отдельный стиль для большой промо-ссылки на 1м экране*/
+
+.promo {
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 55px;
+  font-family: "Georgia", serif;
+  text-align: center;
+}
+
+.promo a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/*РАЗДЕЛ "ПРЕИМУЩЕСТВА*/
+
+/*отступы для блока "преимущества" как на макете*/
+
+.features {
+  padding-top: 50px;
+  padding-bottom: 55px;
+}
+
+/*.features ul - 2й родитель плавающих колонок*/
+/*задаем плавающим колонкам явную ширину*/
+
+.features ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*корректируем позицию, чтобы фоновые изображения 
+не накладывались на текст*/
+/*Используем float: left, чтобы выстроить преимущества в ряд*/
+/*задаем плавающим колонкам явную ширину*/
+/*доблавяем относительное позиционирование: 
+корректируем позицию фона из спрайта*/
+
+.feature-item {
+  position: relative;
+  float: left;
+  width: 279px;
+  padding-top: 90px;
+  padding-right: 30px;
+  padding-left: 30px;
+  text-align: center;
+  border-left: 1px solid #d9d9d9;
+}
+
+/*убираем рамку, потому что декоративная рамка 
+только у 2го и 3го преимущества*/
+
+.feature-item:first-child {
+  border-left-color: transparent;
+}
+
+/*добавляем контейнер, куда поместим спрайт-иконку для преимуществ*/
+/*корректируем позицию фона из спрайта*/
+.feature-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 137px;
+  width: 65px;
+  height: 65px;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+}
+
+/*корректируем позицию фона из спрайта в разных преимуществах*/
+
+.feature-choice::before {
+  background-position: -5px -5px;
+}
+
+.feature-quality::before {
+  background-position: -5px -76px;
+}
+
+.feature-safety::before {
+  background-position: 1px -143px;
+}
+
+/*стилизация заголовков в блоке преимуществ*/
+/*убираем родные отступы, обнуляем и добавляем по макету*/
+
+.feature-title {
+  margin: 0;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  font-family: "Georgia", serif;
+  color: #a38b70;
+}
+
+.feature-item p {
+  margin: 0;
+}
+
+/*РАЗДЕЛ "НЕМНОГО ТЕОРИИ"*/
+
+/*оформляем справочник согласно макету*/
+
+.cat-reference {
+  padding-top: 70px;
+  padding-bottom: 90px;
+  background-color: #f2f2f2;
+}
+
+/*стилизация заголовков всех разделов, 
+начиная с "немного теории" и далее*/
+
+/*Заголовки всегда расположены первыми в разделе, 
+поэтому можно обнулить им маргин сверху. 
+Тогда отступ от заголовка до границы раздела 
+будет зависеть от внутренних отступов самого раздела.
+
+Отступ слева у заголовков мы обнуляем на всякий случай, 
+отступ снизу задаём такой же как на макете.
+
+Отступ справа: некоторые кнопки с помощью 
+абсолютного позиционирования мы разместим 
+в правом верхнем углу разделов, на одном уровне с заголовком. 
+Эти кнопки будут вырваны из потока. И чтобы текст заголовка 
+(если он вдруг изменится) не заполз под кнопку, 
+мы добавляем заголовку отступ справа. 
+Размер этого отступа делаем чуть больше кнопки.*/
+
+.section-title {
+  margin: 0;
+  margin-right: 180px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 55px;
+  font-family: "Georgia", serif;
+  color: #a38b70;
+}
+
+ /*задаем родителю кнопки "справочник" относительное позиционирование.*/
+
+.cat-reference .container {
+  position: relative;
+}
+
+ /*Кнопку «Справочник» мы разместим рядом с заголовком
+ «Немного теории» с помощью абсолютного позиционирования.*/
+
+.to-full-reference {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+/*задаем ширину определений*/
+/*обнуляем отступы для dl для совпадения с макетом*/
+
+.cat-reference dl {
+  width: 830px;
+  margin: 0;
+  padding: 0;
+}
+
+/*обнуляем отступы для списка определений*/
+
+.cat-reference dt {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+/*обнуляем отступы для элементов списка*/
+/*блокам определений задаем относительное позиционирование*/
+/*когда картинки вырваны из потока, высота тега dd зависит только 
+от текста. Если текста будет слишком мало, например, 
+одна строка, то картинка может наехать на нижнюю статью. 
+Чтобы защититься от этого, зададим блоку 
+определения минимальную высоту*/
+
+.cat-reference dd {
+  position: relative;
+  min-height: 100px;
+  margin: 0;
+  padding-left: 130px;
+}
+
+/*картинки внутри блоков определений: скругляем углы, 
+привязываем их к левому верхнему углу тега dd*/
+
+.cat-reference dd img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+/*у абзацев внутри определений уберём ненужные отступы. Считаем, 
+что в каждом определении-анонсе всегда будет по одному абзацу*/
+
+.cat-reference dd p {
+  margin: 0;
+}
+
+/*отделяем одну статью от другой благодаря отступу*/
+
+.theory-container:first-child {
+  margin-bottom: 70px;
+}
+
+/*стилизация заголовков в справочнике*/
+/*Заголовки .reference-title сделаем строчными. Теперь ссылки 
+на источник будут располагаться на одной строке с заголовками.*/
+
+.reference-title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/*стилизация заголовков в "информации об источнике в справочнике"*/
+
+.reference-source {
+  font-weight: normal;
+  font-size: 16px;
+  color: #666666;
+  font-style: italic;
+}
+
+/*стилизация ссылок на источник в справочнике, 
++ при нажатии и наведении*/
+
+
+.reference-source a {
+  position: relative;
+  color: #a38b70;
+}
+
+.reference-source a:hover {
+  color: #8d745a;
+}
+
+.reference-source a:active {
+  color: rgba(141, 116, 90, 0.3);
+}
+
+/*позиционируем иконки согласно макету и задаем
+ им фоновое изображение*/
+
+.reference-source a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 8px;
+  height: 8px;
+  background: url("../img/sprite.png") no-repeat -5px -210px;
+}
+
+/*РАЗДЕЛ ОТЗЫВЫ*/
+
+/*стилизуем блок с отзывами согласно макету*/
+
+.reviews {
+  padding-top: 70px;
+  padding-bottom: 90px;
+}
+
+/*поместим кнопку «Все отзывы» в правый верхний угол раздела*/
+
+.reviews .container {
+  position: relative;
+}
+
+.to-all-reviews {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/*отзывы расположим в две колонки*/
+/*стилизуем отзывы согласно макету*/
+
+.review-item {
+  float: left;
+  width: 377px;
+  margin: 0;
+  margin-right: 80px;
+  padding: 0;
+  padding-left: 50px;
+  border-left: 3px solid #a38b70;
+}
+
+/*обнулим отступы абзаца и оставим только отступ снизу - для
+соотвествия макету*/
+
+.review-item p {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+/*курсив для автора цитаты*/
+
+.review-author {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/*РАЗДЕЛ "ПОПУЛЯРНЫЕ ТОВАРЫ"*/
+
+/*задаем серый цвет для блока*/
+/*стилизуем блок с популярными товарами 
+и прайс-листом согласно макету*/
+
+.popular-and-price {
+  padding-top: 70px;
+  padding-bottom: 90px;
+  background-color: #f2f2f2;
+}
+
+/*делаем отноистельное позицирование, т.к. родитель кнопки "каталог"*/
+
+.popular-and-price .container {
+  position: relative;
+}
+
+/*поместим кнопку «Каталог» в правый верхний угол раздела*/
+
+.to-catalog {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+/*стилизуем блок с популярными товарами согласно макету*/
+
+.popular-items {
+  margin-bottom: 50px;
+}
+
+
+/*выстроим в колонки*/
+/*стилизуем согласно макету*/
+/*Чтобы компенсировать «дырку» под картинкой, добавляем карточке
+внутренний отступ сверху размером с высоту изображения.*/
+
+.catalog-item {
+  position: relative;
+  float: left;
+  width: 262px;
+  margin-right: 48px;
+  padding: 15px 22px;
+  padding-top: 221px;
+  border: 1px solid #d8d8d8;
+}
+
+/*товары в три колонки: убираем лишнее у третьей колонки*/
+
+.catalog-item:last-child {
+  margin-right: 0;
+}
+
+/*с помощью абсолютного позиционирования вырываем картинку 
+из потока и располагаем в левом верхнем углу карточки.*/
+
+.catalog-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 306px;
+  height: 206px;
+}
+
+/*выделяем заголовки в каталоге*/
+
+/*название товара и его цена: расположим их в две колонки
+чтобы заголовок не заползал на стоимость, 
+для этого ограничим максимальную ширину заголовка*/
+
+.catalog-item h3 {
+  float: left;
+  max-width: 205px;
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #000000;
+}
+
+/*Цена тоже может изменяться, 
+поэтому ей тоже нужно ограничить максимальную ширину*/
+
+.catalog-item-price {
+  float: right;
+  max-width: 55px;
+  margin-bottom: 20px;
+}
+
+/*зададим кнопкам подходящую ширину, 
+чтобы они выстроились друг за другом*/
+
+.catalog-item .btn {
+  width: 101px;
+  color: #ffffff;
+  background-color: #a38b70;
+}
+
+/*состояния наведения и нажатия на кнопки*/
+
+.catalog-item .btn:hover {
+  background-color: #8d745a;
+}
+
+.catalog-item .btn:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*Кнопке, отвечающей за описание товара,  .btn-info, 
+а кнопке покупки  .btn-buy - расположим в две колонки*/
+/*первой кнопке зададим свойство clear. Это нужно, чтобы кнопка 
+всегда начиналась на новой строке после предыдущего 
+плавающего блока с ценой*/
+
+.catalog-item .btn-info {
+  float: left;
+  clear: left;
+}
+
+.catalog-item .btn-buy {
+  float: right;
+}
+
+/*прайс-лист оформляем согласно макету*/
+
+.price-list {
+  width: 100%;
+  border-collapse: collapse;
+  line-height: 30px;
+}
+
+.price-list th {
+  font-weight: normal;
+  font-size: 14px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.price-list td {
+  border: 1px solid #d8d8d8;
+}
+
+/*зададим ячейкам таблицы соответствующие макету внутренние отступы*/
+
+.price-list th,
+.price-list td {
+  padding: 10px 17px;
+}
+
+/*ширина колонок таблицы зависит от количества текста внутри ячеек. 
+Поэтому, чтобы получить правильные ширины колонок, 
+нужно задать ширину каждой ячейке.*/
+
+/*ячейки с номером*/
+
+.price-list .price-number {
+  width: 15px;
+  text-align: center;
+}
+
+/*ячейки с названием услуги*/
+
+.price-list .price-name {
+  width: 422px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/*ячейки с должностью мастера*/
+
+.price-list .price-master {
+  width: 306px;
+}
+
+/*ячейки с ценой услуги*/
+
+.price-list .price-cost {
+  width: 135px;
+}
+
+/*РАЗДЕЛ "ФОРМА ОБРАТНОЙ СВЯЗИ"*/
+
+/*стилизуем блок с отзывами согласно макету*/
+
+
+.feedback {
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+
+.feedback .container {
+  position: relative;
+}
+
+.feedback .section-title {
+  max-width: 500px;
+}
+
+.feedback-tip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 500px;
+}
+
+/*добавили картинку как фон с правой части блока*/
+/*зафиксируем ширину формы*/
+
+.feedback-form {
+  width: 630px;
+  padding-right: 390px;
+  background-image: url("../img/write.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 40px;
+}
+
+/*добавим внешние отступы, как на макете.*/
+
+.feedback-form-group {
+  margin-bottom: 15px;
+}
+
+/*По макету поля «Контактный телефон» 
+и «Электронная почта» располагаются в две колонки.
+Чтобы разместить их в ряд, воспользуемся флоатами*/
+
+.feedback-form-group-left-part {
+  float: left;
+}
+
+.feedback-form-group-right-part {
+  float: right;
+}
+
+.feedback-form-group-left-part,
+.feedback-form-group-right-part {
+  width: 290px;
+}
+
+/*подписи к полям внутри формы*/
+/*добавим внешние отступы, как на макете.*/
+
+.feedback-form-group label {
+  display: inline-block;
+  padding: 5px 0;
+  padding-left: 17px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/*Поля ввода в форме обратной связи, + при наведении и нажатии*/
+/*Задаем ширину поля 100%, чтобы оно занимало весь размер 
+контейнера, а затем задаем внутренние отступы и рамки как на макете. 
+Устанавливаем box-sizing: border-box, 
+чтобы поле не вываливалось из контейнера*/
+
+.feedback-form input[type="text"],
+.feedback-form select,
+.feedback-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 54px;
+  padding: 9px 15px;
+  font: inherit;
+  color: inherit;
+  border: 2px solid #d5d5d5;
+}
+
+.feedback-form input[type="text"]:hover,
+.feedback-form select:hover,
+.feedback-form textarea:hover {
+  border-color: #bebebe;
+}
+
+.feedback-form input[type="text"]:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: #8d745a;
+}
+
+/*Многострочному полю ввода зададим высоту 
+согласно макету и блочное отображение (на всякий случай).*/
+
+.feedback-form textarea {
+  display: block;
+  min-height: 120px;
+}
+
+/*чекбокс в форме обратной связи*/
+/*Для блока с чекбоксом зададим отступы как на макете.*/
+.checkbox-area {
+  margin-bottom: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 17px;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.checkbox-area input[type="checkbox"] {
+  margin: 0;
+  margin-right: 5px;
+}
+
+/*задаем правильный отступ сверху*/
+
+.feedback-form .btn {
+  margin-top: 40px;
+  color: #ffffff;
+  background-color: #a38b70;
+}
+
+/*Состояния кнопки отправки*/
+
+.feedback-form .btn:hover {
+  background-color: #8d745a;
+}
+
+.feedback-form .btn:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*РАЗДЕЛ "ПОДВАЛ"*/
+
+/*стилизуем подвал согласно макету*/
+
+.page-footer {
+  padding-top: 45px;
+  padding-bottom: 50px;
+}
+
+/*отделяем три внутренних раздела подвала друг от друга*/
+
+.footer-top {
+  margin-bottom: 45px;
+}
+
+/*лого прижимаем влево согласно макету*/
+
+.footer-logo {
+  float: left;
+  width: 205px;
+  height: 55px;
+}
+
+/*лого зададим фиксированные размеры.*/
+ 
+.footer-logo img {
+  width: 205px;
+  height: 55px;
+}
+
+/*отделяем три внутренних раздела подвала друг от друга*/
+
+.footer-middle {
+  margin-bottom: 50px;
+  padding-top: 50px;
+}
+
+.footer-middle,
+.footer-bottom {
+  border-top: 1px solid #5e5e5e;
+}
+
+/*меню прижимаем влево согласно макету,
+задаем колонкам внешние отступы справа, 
+чтобы они не прилипали друг к другу*/
+
+.footer-menu {
+  float: left;
+  width: 150px;
+  margin-right: 20px;
+}
+
+/*выделяем заголовки в подвале*/
+
+/*В навигационном меню в подвале есть заголовки и списки, 
+у которых нужно сбросить отступы, задаваемые браузером 
+по умолчанию, и прописать по макету*/
+
+.footer-menu h3 {
+  margin: 0;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Georgia", serif;
+  color: #a38b70;
+}
+
+
+/*убираем точки-маркеры у списка*/
+
+.footer-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-menu li {
+  margin-bottom: 15px;
+}
+
+/*оформляем ссылки в подвале, + при наведении и нажатии*/
+
+.footer-menu a {
+  color: #c3c3c3;
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  color: #ffffff;
+}
+
+.footer-menu a:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*отделяем три внутренних раздела подвала друг от друга*/
+
+.footer-bottom {
+  padding-top: 50px;
+}
+
+/*блок с иконками прижимаем влево согласно макету*/
+/*Чтобы стилизовать ссылки на соцсети  как на макете, 
+нам нужно скрыть их текстовое содержимое.
+зададим нулевой размер шрифта*/
+
+.footer-social {
+  float: left;
+  width: 490px;
+  font-size: 0;
+}
+
+/*оформляем кнопки соц.сетей*/
+
+.footer-social b {
+  margin-right: 40px;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Georgia", serif;
+  color: #a38b70;
+}
+
+/*Нам нужно задать размеры и отступы кнопок, а ещё выстроить их 
+в ряд. Выбираем блочно-строчные элементы. Ранее мы задали 
+нулевой размер шрифта не самим ссылкам, а родительскому блоку. 
+Это было нужно в том числе и для борьбы с отступами 
+между блочно-строчными элементами. При использовании 
+блочно-строчных лучше всегда явно задавать вертикальное 
+выравнивание. В нашем случае лучше всего подойдёт 
+выравнивание посередине.*/
+/*зададим кнопкам неповторяющееся фоновое изображение*/
+
+.social-btn {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  vertical-align: middle;
+  color: #ffffff;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*По наведению будем менять цвет рамки*/
+
+.social-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/*а при нажатии — непрозрачность всего блока*/
+
+.social-btn:active {
+  border-color: #ffffff;
+  opacity: 0.1;
+}
+
+/*зададим иконкам правильную позицию фона, 
+чтобы в них отображалась подходящая иконка*/
+
+.social-btn-vk {
+  background-position: 16px -238px;
+}
+
+.social-btn-fb {
+  background-position: 19px -297px;
+}
+
+.social-btn-in {
+  background-position: 13px -358px;
+}
+
+/*оформляем блок "копирайт"*/
+/*копирайт прижимаем вправо согласно макету*/
+ /*задаём элементу блочно-строчный тип, фоновое изображение, 
+ скрываем в CSS текст, прописываем нужные размеры, 
+ выравнивание и отступы. Добавим блоку выравнивание текста 
+ по правому краю. Так блок визуально будет гарантированно 
+ примыкать к правому краю «сетки» страницы, 
+даже если текст изменится и станет короче или длинее.*/
+
+.footer-copyright {
+  float: right;
+  width: 236px;
+  margin-top: 17px;
+  text-align: right;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.footer-copyright .heart {
+  display: inline-block;
+  width: 27px;
+  height: 24px;
+  font-size: 0;
+  vertical-align: middle;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-position: -5px -419px;
+}
+
+ /*стилизуем тексты в блоке с копирайтом*/
+
+.footer-copyright a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-copyright a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright a:active {
+  color: rgba(255, 255, 255, 0.3);
+}
